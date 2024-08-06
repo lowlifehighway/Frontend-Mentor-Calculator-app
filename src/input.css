@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#theme1 {
+  --main-text: 221, 14%, 31%;
+  --mainBackground1: 222, 26%, 31%;
+  --toggle-keypad1: 223, 31%, 20%;
+  --key-background1Primary: 30, 25%, 89%;
+  --key-background1Secondary: 225, 21%, 49%;
+  --background-toggle1Tertiary: 6, 63%, 50%;
+  --screen-background: 224, 36%, 15%;
+}
+#theme2 {
+  --main-text: 60, 10%, 19%;
+  --mainBackground1: 0, 0%, 90%;
+  --toggle-keypad1: 0, 5%, 81%;
+  --key-background1Primary: 45, 7%, 89%;
+  --key-background1Secondary: 185, 42%, 37%;
+  --background-toggle1Tertiary: 25, 98%, 40%;
+  --screen-background: 0, 0%, 93%;
+}
+#theme3 {
+  --main-text: 52, 100%, 62%;
+  --mainBackground1: 268, 75%, 9%;
+  --toggle-keypad1: 268, 71%, 12%;
+  --key-background1Primary: 268, 47%, 21%;
+  --key-background1Secondary: 281, 89%, 26%;
+  --background-toggle1Tertiary: 176, 100%, 44%;
+  --screen-background: 268, 71%, 12%;
+}
+/* 'main-background1': 'hsl(222, 26%, 31%)',
+        'toggle-keypad1': 'hsl(223, 31%, 20%)',
+        'key-background1Primary': 'hsl(30, 25%, 89%)',
+        'key-background1Secondary': 'hsl(225, 21%, 49%)',
+        'background-toggle1Tertiary': 'hsl(6, 63%, 50%)',
+        'screen-background': 'hsl(224, 36%, 15%)', */
+.b {
+  color: rgba(var(--key-background1Primary));
+}

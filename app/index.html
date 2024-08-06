@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" id="theme1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="stylesheet" href="output.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body
+    class="flex items-center justify-center bg-main-background1 min-h-[100dvh]"
+  >
+    <main
+      class="max-w-xl flex flex-col items-center justify-center gap-8 max-md:max-w-xs"
+    >
+      <div
+        id="top"
+        class="flex items-end w-full text-white justify-between select-none"
+      >
+        <span class="font-bold text-[2rem] max-md:text-2xl">calc</span>
+        <div class="flex items-end gap-4">
+          <span class="py-1 font-semibold">THEME</span>
+          <div class="flex flex-col">
+            <div class="flex gap-6 px-2">
+              <span class="block font-bold">1</span>
+              <span class="block font-bold">2</span>
+              <span class="block font-bold">3</span>
+            </div>
+            <div class="bg-toggle-keypad1 rounded-3xl p-1">
+              <div
+                id="toggle"
+                class="w-6 h-6 rounded-full bg-background-toggle1Tertiary transition-all duration-300"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <div>
+          <input
+            id="screen"
+            type=""
+            inputmode="none"
+            class="w-full h-24 max-sm:h-16 rounded-xl text-right text-6xl max-sm:text-[2rem] bg-screen-background text-white px-2"
+            autocomplete="off"
+            spellcheck="false"
+            autoCorrect="off"
+            autocapitalize="off"
+          />
+        </div>
+      </div>
+      <div
+        class="bg-toggle-keypad1 grid grid-cols-4 p-6 gap-6 rounded-xl select-none max-md:gap-4"
+      >
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          7
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          8
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          9
+        </div>
+        <div
+          id="delete-btn"
+          class="text-white text-[2rem] max-md:text-xl cursor-pointer font-bold bg-key-background1Secondary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          DEL
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          4
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          5
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          6
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center sy"
+        >
+          +
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          1
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          2
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          3
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          -
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          .
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          0
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          /
+        </div>
+        <div
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          *
+        </div>
+        <div
+          id="reset-btn"
+          class="text-white text-[2rem] max-md:text-xl cursor-pointer font-bold bg-key-background1Secondary py-3 px-8 col-span-2 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          RESET
+        </div>
+        <div
+          id="enter-btn"
+          class="text-white text-[2rem] max-md:text-3xl cursor-pointer font-bold bg-background-toggle1Tertiary py-3 px-8 col-span-2 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+        >
+          =
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
