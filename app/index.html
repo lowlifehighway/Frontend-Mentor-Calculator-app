@@ -5,26 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+    <link rel="icon" sizes="32x32" href="./favicon.ico" />
+    <link rel="apple-touch-icon" sizes="32x32" href="./favicon.ico" />
 
     <title>Frontend Mentor | Calculator app</title>
     <link rel="stylesheet" href="output.css" />
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.0.0/math.min.js"></script>
   </head>
   <body
     class="flex items-center justify-center bg-main-background1 min-h-[100dvh]"
@@ -108,7 +94,7 @@
           6
         </div>
         <div
-          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center sy"
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center operator"
         >
           +
         </div>
@@ -128,7 +114,7 @@
           3
         </div>
         <div
-          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center operator"
         >
           -
         </div>
@@ -143,12 +129,12 @@
           0
         </div>
         <div
-          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center operator"
         >
           /
         </div>
         <div
-          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center"
+          class="text-main-text text-[2rem] max-md:text-2xl cursor-pointer calc-button font-bold bg-key-background1Primary py-3 px-8 rounded-2xl max-md:px-4 max-md:py-2 inline-flex items-center justify-center operator"
         >
           *
         </div>

@@ -26,13 +26,17 @@ const validKeys = [
   'Delete',
   'Enter',
   'Backspace',
-  'arrowUp',
-  'arrowRight',
-  'arrowDown',
-  'arrowLeft',
+  'ArrowUp',
+  'ArrowRight',
+  'ArrowDown',
+  'ArrowLeft',
   '.',
+  'Tab',
 ];
+const operators = ['+', '-', '*', '/', 'shift', 'Enter'];
 let togglePosition = 0;
+let answered = false;
+calc.focus();
 
 toggle.addEventListener('click', () => {
   enterBtn.style.color = '';
@@ -57,22 +61,34 @@ toggle.addEventListener('click', () => {
 });
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
+    if (answered && !button.classList.contains('operator')) calc.value = '';
+    answered = false;
     calc.value += button.textContent.trim();
   });
 });
 deleteBtn.addEventListener('click', () => {
   calc.value = calc.value.slice(0, -1);
+  if (answered && !deleteBtn.classList.contains('operator')) calc.value = '';
+  answered = false;
 });
 resetBtn.addEventListener('click', () => {
   calc.value = '';
 });
 enterBtn.addEventListener('click', () => {
-  calc.value = eval(calc.value);
+  answered = true;
+  calc.value = math.evaluate(calc.value);
 });
 calc.addEventListener('keydown', (e) => {
-  e.key === 'Enter' ? (calc.value = eval(calc.value)) : '';
-});
+  if (e.key === 'Enter') {
+    answered = true;
+    calc.value = eval(calc.value);
+  }
 
+  if (answered && !operators.includes(e.key)) {
+    calc.value = '';
+    answered = false;
+  }
+});
 calc.onkeydown = function (e) {
   if (validKeys.includes(e.key)) {
     return true;
