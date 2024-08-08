@@ -34,31 +34,34 @@ const validKeys = [
   'Tab',
 ];
 const operators = ['+', '-', '*', '/', 'shift', 'Enter'];
-let togglePosition = 0;
+let togglePosition;
 let answered = false;
 calc.focus();
 
-toggle.addEventListener('click', () => {
-  enterBtn.style.color = '';
-  calc.style.color = '';
-  topText.style.color = '';
-  document.documentElement.id = 'theme1';
-  if (togglePosition === 0) {
-    toggle.style.transform = `translateX(${(togglePosition += 125)}%)`;
+const toggleFunction = function () {
+  togglePosition = +toggle.value;
+
+  if (togglePosition >= 1 && togglePosition <= 33) {
+    enterBtn.style.color = '';
+    calc.style.color = '';
+    topText.style.color = '';
+    document.documentElement.id = 'theme1';
+  } else if (togglePosition >= 34 && togglePosition <= 66) {
     document.documentElement.id = 'theme2';
     calc.style.color = 'hsl(60, 10%, 19%)';
     topText.style.color = 'hsl(60, 10%, 19%)';
-  } else if (togglePosition === 125) {
-    toggle.style.transform = `translateX(${(togglePosition += 125)}%)`;
+  } else if (togglePosition >= 67 && togglePosition <= 100) {
     document.documentElement.id = 'theme3';
     enterBtn.style.color = 'hsl(198, 20%, 13%)';
     calc.style.color = 'hsl(52, 100%, 62%)';
     topText.style.color = 'hsl(52, 100%, 62%)';
-  } else if (togglePosition === 250) {
-    document.documentElement.id = 'theme1';
-    toggle.style.transform = `translateX(${(togglePosition -= 250)}%)`;
   }
-});
+};
+toggle.addEventListener('mousemove', toggleFunction);
+toggle.addEventListener('mouseup', toggleFunction);
+toggle.addEventListener('touchmove', toggleFunction);
+toggle.addEventListener('touchend', toggleFunction);
+
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     if (answered && !button.classList.contains('operator')) calc.value = '';

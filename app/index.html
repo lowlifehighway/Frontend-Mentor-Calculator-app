@@ -22,35 +22,36 @@
         id="top"
         class="flex items-end w-full text-white justify-between select-none"
       >
-        <span class="font-bold text-[2rem] max-md:text-2xl">calc</span>
+        <h1 class="font-bold text-[2rem] max-md:text-2xl">calc</h1>
         <div class="flex items-end gap-4">
           <span class="py-1 font-semibold">THEME</span>
           <div class="flex flex-col">
-            <div class="flex gap-6 px-2">
+            <div class="flex gap-6 px-2 justify-between">
               <span class="block font-bold">1</span>
               <span class="block font-bold">2</span>
               <span class="block font-bold">3</span>
             </div>
-            <div class="bg-toggle-keypad1 rounded-3xl p-1">
-              <div
-                id="toggle"
-                class="w-6 h-6 rounded-full bg-background-toggle1Tertiary transition-all duration-300"
-              ></div>
-            </div>
+            <input
+              id="toggle"
+              type="range"
+              min="1"
+              max="100"
+              value="1"
+              class="slider rounded-3xl bg-toggle-keypad1 p-1 w-24"
+            />
           </div>
         </div>
       </div>
       <div class="w-full">
         <div>
+          <label for="screen"></label>
           <input
             id="screen"
-            type=""
+            type="text"
             inputmode="none"
             class="w-full h-24 max-sm:h-16 rounded-xl text-right text-6xl max-sm:text-[2rem] bg-screen-background text-white px-2"
             autocomplete="off"
             spellcheck="false"
-            autoCorrect="off"
-            autocapitalize="off"
           />
         </div>
       </div>

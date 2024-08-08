@@ -29,12 +29,28 @@
   --background-toggle1Tertiary: 176, 100%, 44%;
   --screen-background: 268, 71%, 12%;
 }
-/* 'main-background1': 'hsl(222, 26%, 31%)',
-        'toggle-keypad1': 'hsl(223, 31%, 20%)',
-        'key-background1Primary': 'hsl(30, 25%, 89%)',
-        'key-background1Secondary': 'hsl(225, 21%, 49%)',
-        'background-toggle1Tertiary': 'hsl(6, 63%, 50%)',
-        'screen-background': 'hsl(224, 36%, 15%)', */
-.b {
-  color: rgba(var(--key-background1Primary));
+
+.slider {
+  -webkit-appearance: none;
+  outline: none;
+  -webkit-transition: 0.3s;
+  transition: opacity 0.3s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+  background: hsl(var(--background-toggle1Tertiary));
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+  background: hsl(var(--background-toggle1Tertiary));
+  cursor: pointer;
 }
