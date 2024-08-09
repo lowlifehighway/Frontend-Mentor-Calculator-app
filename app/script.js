@@ -1,5 +1,5 @@
 // 'use strict';
-
+const main = document.getElementById('main');
 const toggle = document.getElementById('toggle');
 const calc = document.getElementById('screen');
 const buttons = Array.from(document.querySelectorAll('.calc-button'));
@@ -22,7 +22,7 @@ const validKeys = [
   '-',
   '+',
   '/',
-  'shift',
+  'Shift',
   'Delete',
   'Enter',
   'Backspace',
@@ -33,10 +33,28 @@ const validKeys = [
   '.',
   'Tab',
 ];
-const operators = ['+', '-', '*', '/', 'shift', 'Enter'];
+const calcButtons = [
+  '0',
+  '1',
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '*',
+  '-',
+  '+',
+  '/',
+  'Shift',
+  '.',
+];
+const operators = ['+', '-', '*', '/', 'Shift'];
 let togglePosition;
 let answered = false;
-calc.focus();
+// calc.focus();
 
 const toggleFunction = function () {
   togglePosition = +toggle.value;
@@ -71,32 +89,60 @@ buttons.forEach((button) => {
 });
 deleteBtn.addEventListener('click', () => {
   calc.value = calc.value.slice(0, -1);
-  if (answered && !deleteBtn.classList.contains('operator')) calc.value = '';
+  if (answered && !deleteBtn.classList.contains('operator')) calc.value = '0';
   answered = false;
 });
 resetBtn.addEventListener('click', () => {
-  calc.value = '';
+  calc.value = '0';
 });
 enterBtn.addEventListener('click', () => {
   answered = true;
-  calc.value = math.evaluate(calc.value);
+  try {
+    calc.value = new Intl.NumberFormat(navigator.language).format(
+      math.evaluate(calc.value)
+    );
+  } catch (error) {
+    try {
+      calc.value = new Intl.NumberFormat(navigator.language).format(
+        eval(calc.value)
+      ); // Risky, use with caution
+    } catch (evalError) {
+      calc.value = 'Error';
+    }
+  }
 });
 calc.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     answered = true;
-    calc.value = eval(calc.value);
+    try {
+      calc.value = new Intl.NumberFormat(navigator.language).format(
+        math.evaluate(calc.value)
+      );
+    } catch (error) {
+      try {
+        calc.value = new Intl.NumberFormat(navigator.language).format(
+          eval(calc.value)
+        ); // Risky, use with caution
+      } catch (evalError) {
+        calc.value = 'Error';
+      }
+    }
+    return;
   }
-
-  if (answered && !operators.includes(e.key)) {
-    calc.value = '';
+  if (calcButtons.includes(e.key)) {
+    if (answered && !operators.includes(e.key)) calc.value = '';
     answered = false;
+    return;
   }
 });
-calc.onkeydown = function (e) {
-  if (validKeys.includes(e.key)) {
-    return true;
-  }
-  return false;
+document.onkeydown = function (e) {
+  calc.focus();
+  main.onkeydown = function (e) {
+    if (validKeys.includes(e.key)) {
+      return true;
+    }
+    return false;
+  };
 };
 document.ondblclick = function (e) {
   e.preventDefault();
