@@ -8,5 +8,8 @@
     "minify": "npx tailwindcss -i ./src/input.css -o ./app/output.css --minify"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "workbox-cli": "^7.3.0"
+  }
 }
